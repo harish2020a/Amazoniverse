@@ -19,14 +19,14 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50">
       <div className="flex items-center bg-amazon_blue p-1 flex-grow py-2">
-        <div className="mt-6 ml-2 pr-4 flex items-center flex-grow sm:flex-grow-0">
+        <div className="mt-2 ml-2 pr-4 flex items-center flex-grow sm:flex-grow-0">
           <Image
             onClick={() => {
               router.push("/");
             }}
             src="/static/logo.png"
-            width={130}
-            height={40}
+            width={104}
+            height={32}
             style={{ objectFit: "contain" }}
             className="cursor-pointer"
             alt="Logo"
