@@ -1,6 +1,8 @@
 "use client";
 import React from "react";
 import Product from "./Product";
+import Image from "next/image";
+import bannerImage from "../../../public/static/banner.jpg";
 
 const ProductFeed = ({ products }) => {
   return (
@@ -16,7 +18,7 @@ const ProductFeed = ({ products }) => {
           image={product.image}
         />
       ))}
-      <img className="md:col-span-full" src="/static/full.jpg" alt="Banner" />
+      <Image className="md:col-span-full" src={bannerImage} alt="Banner" />
       <div className="md:col-span-2">
         {products.slice(4, 5).map((product) => (
           <Product

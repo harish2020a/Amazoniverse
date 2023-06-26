@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { StarIcon } from "@heroicons/react/24/solid";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../store/cartSlice";
+import primeImage from "../../../public/static/prime.png";
 
 const Product = ({ id, title, price, description, category, image }) => {
   const [rating, setRating] = useState();
@@ -60,7 +61,7 @@ const Product = ({ id, title, price, description, category, image }) => {
       </div>
       {hasPrime && (
         <div className="flex items-center space-x-2 -mt-5 mb-1">
-          <img className="w-12" src="/static/prime.png" alt="Prime" />
+          <Image className="w-12" src={primeImage} alt="Prime" />
           <p className="text-xs text-gray-500">Next-day-Delivery FREE!!!</p>
         </div>
       )}

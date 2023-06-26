@@ -8,6 +8,7 @@ import {
   setQuantity,
 } from "../store/cartSlice";
 import { useDispatch } from "react-redux";
+import primeImage from "../../../public/static/prime.png";
 
 const CheckoutProduct = ({
   id,
@@ -62,9 +63,9 @@ const CheckoutProduct = ({
         </div>
         <p className="text-xs my-2 line-clamp-3">{description}</p>
         {new Intl.NumberFormat("en-IN", {
-                    style: "currency",
-                    currency: "INR",
-                  }).format(price)}
+          style: "currency",
+          currency: "INR",
+        }).format(price)}
         <label htmlFor="qty" className="ml-4">
           Quantity:
         </label>
@@ -78,10 +79,10 @@ const CheckoutProduct = ({
         />
         {hasPrime && (
           <div className="flex items-center space-x-2">
-            <img
+            <Image
               loading="lazy"
               className="w-12"
-              src="/static/prime.png"
+              src={primeImage}
               alt="Prime"
             />
             <p className="text-xs text-gray-500">Next-day-Delivery FREE!!!</p>
