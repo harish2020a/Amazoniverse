@@ -8,6 +8,7 @@ import Currency from "react-currency-formatter";
 import { useSession } from "next-auth/react";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
+
 const stripePromise = loadStripe(process.env.stripe_public_key);
 
 const Checkout = () => {
@@ -33,6 +34,7 @@ const Checkout = () => {
     const result = await stripe.redirectToCheckout({
       sessionId: checkoutSession.data.id,
     });
+
     if (result.error) alert(result.error.message);
   };
 
@@ -40,7 +42,6 @@ const Checkout = () => {
     <div className="bg-gray-100">
       <Header />
       <main className="lg:flex max-w-screen-2xl mx-auto">
-
         <div className="flex-grow m-5 shadow-sm">
           <Image
             src="/static/checkout-img.webp"

@@ -14,7 +14,8 @@ export async function POST(req) {
       },
       unit_amount: (item.price * 100).toFixed(0),
     },
-    quantity: 1,
+    tax_rates: ["txr_1NNA4aSFPm4DREWdFNs4pikH"],
+    quantity: item.qty,
   }));
 
   const session = await stripe.checkout.sessions.create({
@@ -23,13 +24,19 @@ export async function POST(req) {
       allowed_countries: ["IN"],
     },
     mode: "payment",
-    success_url: `${process.env.HOST}/success`,
+    customer_email: email,
+    success_url: `${process.env.HOST}/checkout/success?sessionId={CHECKOUT_SESSION_ID}`,
     cancel_url: `${process.env.HOST}/checkout`,
     metadata: {
       email,
       images: JSON.stringify(items.map((item) => item.image)),
     },
+    shipping_options: [
+      {
+        shipping_rate: "shr_1NMlmVSFPm4DREWd8rmUhZEZ",
+      },
+    ],
   });
 
-  return NextResponse.json({ id: session.id });
+  return NextResponse.json(session);
 }
