@@ -29,10 +29,11 @@ function Carousel() {
   };
 
   return (
-    <div className="hidden sm:block h-[640px] w-full m-auto relative group">
+    <div className="hidden lg:block h-[640px] w-full m-auto relative group">
       <Image
         className="w-full h-full rounded-2xl bg-center bg-cover duration-500"
         src={slides[currentIndex]}
+        fill
       />
 
       <div className="hidden group-hover:block absolute top-[30%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">

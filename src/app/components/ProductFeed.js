@@ -6,7 +6,7 @@ import bannerImage from "../../../public/static/banner.jpg";
 
 const ProductFeed = ({ products }) => {
   return (
-    <div className="max-w-screen-2xl grid grid-flow-row-dense md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:-mt-96">
+    <div className="max-w-screen-2xl grid grid-flow-row-dense md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:-mt-96">
       {products.slice(0, 4).map((product) => (
         <Product
           key={product.id}
