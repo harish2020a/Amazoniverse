@@ -1,14 +1,14 @@
 "use client";
 import React, { useState } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
+import carousel1 from "../../../public/static/carousel1.jpg";
+import carousel2 from "../../../public/static/carousel2.jpg";
+import carousel3 from "../../../public/static/carousel3.jpg";
+import carousel4 from "../../../public/static/carousel4.jpg";
+import Image from "next/image";
 
 function Carousel() {
-  const slides = [
-    { url: "/static/carousel1.jpg" },
-    { url: "/static/carousel2.jpg" },
-    { url: "/static/carousel3.jpg" },
-    { url: "/static/carousel4.jpg" },
-  ];
+  const slides = [carousel1, carousel2, carousel3, carousel4];
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -29,11 +29,11 @@ function Carousel() {
   };
 
   return (
-    <div className="hidden sm:block h-[640px] w-full m-auto relative group ">
-      <div
-        style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
+    <div className="hidden sm:block h-[640px] w-full m-auto relative group">
+      <Image
         className="w-full h-full rounded-2xl bg-center bg-cover duration-500"
-      ></div>
+        src={slides[currentIndex]}
+      />
 
       <div className="hidden group-hover:block absolute top-[30%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
         <BsChevronCompactLeft onClick={prevSlide} size={30} />
@@ -48,8 +48,7 @@ function Carousel() {
             key={slideIndex}
             onClick={() => goToSlide(slideIndex)}
             className="text-2xl cursor-pointer"
-          >
-          </div>
+          ></div>
         ))}
       </div>
     </div>
