@@ -1,14 +1,13 @@
-"use client";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 import Header from "../../components/Header";
-import { useRouter, useSearchParams } from "next/navigation";
-import { useSession } from "next-auth/react";
+import { getServerSession } from "next-auth/next";
+import GoToHomeButton from "@/app/components/GoToHomeButton";
+import { authOptions } from "@/app/utils/authOptions";
 
-const SuccessPage = () => {
-  const router = useRouter();
-  const { data: session } = useSession();
-  const searchParams = useSearchParams();
-  const stripeSessionId = searchParams.get("sessionId");
+const SuccessPage = async ({ searchParams }) => {
+  let stripeSessionId = searchParams.sessionId;
+  if (stripeSessionId) stripeSessionId = stripeSessionId.startsWith("cs_");
+  const session = await getSession();
 
   return (
     <div className="bg-gray-100 h-screen">
@@ -33,11 +32,9 @@ const SuccessPage = () => {
             </>
           )}
           {(!stripeSessionId || !session) && (
-            <h1 className="text-3xl self-center">Unauthorized Access</h1>
+            <h1 className="text-3xl self-center">404 Page not found</h1>
           )}
-          <button onClick={() => router.push("/")} className="button mt-8">
-            Go to Home Page
-          </button>
+          <GoToHomeButton />
         </div>
       </main>
     </div>
@@ -45,3 +42,8 @@ const SuccessPage = () => {
 };
 
 export default SuccessPage;
+
+async function getSession() {
+  const session = await getServerSession(authOptions);
+  return session;
+}
