@@ -4,7 +4,6 @@ import Header from "./Header";
 import Image from "next/image";
 import { selectItems, selectTotal } from "../store/cartSlice";
 import CheckoutProduct from "./CheckoutProduct";
-import Currency from "react-currency-formatter";
 import { useSession } from "next-auth/react";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
@@ -79,7 +78,10 @@ const Checkout = () => {
               <h2 className="whitespace-nowrap">
                 Subtotal ({items.length} items):{" "}
                 <span className="font-bold">
-                  <Currency quantity={total} currency="INR" />
+                  {new Intl.NumberFormat("en-IN", {
+                    style: "currency",
+                    currency: "INR",
+                  }).format(total)}
                 </span>
               </h2>
               <button

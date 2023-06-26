@@ -1,7 +1,6 @@
 "use client";
 import { StarIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
-import Currency from "react-currency-formatter";
 import {
   removeFromCart,
   increaseQuantity,
@@ -62,7 +61,10 @@ const CheckoutProduct = ({
             })}
         </div>
         <p className="text-xs my-2 line-clamp-3">{description}</p>
-        <Currency quantity={price} currency="INR" />
+        {new Intl.NumberFormat("en-IN", {
+                    style: "currency",
+                    currency: "INR",
+                  }).format(price)}
         <label htmlFor="qty" className="ml-4">
           Quantity:
         </label>

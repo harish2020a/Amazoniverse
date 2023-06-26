@@ -2,7 +2,6 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { StarIcon } from "@heroicons/react/24/solid";
-import Currency from "react-currency-formatter";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../store/cartSlice";
 
@@ -54,7 +53,10 @@ const Product = ({ id, title, price, description, category, image }) => {
       </div>
       <p className="text-xs my-2 line-clamp-2">{description}</p>
       <div className="mb-5">
-        <Currency quantity={parseFloat(price)} currency="INR" />
+        {new Intl.NumberFormat("en-IN", {
+          style: "currency",
+          currency: "INR",
+        }).format(price)}
       </div>
       {hasPrime && (
         <div className="flex items-center space-x-2 -mt-5 mb-1">
