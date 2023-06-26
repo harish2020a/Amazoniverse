@@ -18,7 +18,7 @@ const ProductFeed = ({ products }) => {
           image={product.image}
         />
       ))}
-      <Image className="md:col-span-full" src={bannerImage} alt="Banner" />
+      <Image className="hidden lg:block md:col-span-full" src={bannerImage} alt="Banner" />
       <div className="md:col-span-2">
         {products.slice(4, 5).map((product) => (
           <Product
