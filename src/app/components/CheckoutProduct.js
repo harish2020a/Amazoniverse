@@ -75,7 +75,7 @@ const CheckoutProduct = ({
           name="qty"
           value={qty}
           min={1}
-          className="bg-yellow-400 rounded-md w-20 ml-1 p-2"
+          className="rounded-md w-20 m-4 ml-2 p-2 button"
         />
         {hasPrime && (
           <div className="flex items-center space-x-2">
