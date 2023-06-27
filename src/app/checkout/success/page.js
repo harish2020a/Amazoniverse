@@ -2,6 +2,7 @@ import { CheckCircleIcon } from "@heroicons/react/24/solid";
 import { getServerSession } from "next-auth/next";
 import GoToHomeButton from "@/app/components/GoToHomeButton";
 import { authOptions } from "@/app/utils/authOptions";
+import { notFound } from "next/navigation";
 
 const SuccessPage = async ({ searchParams }) => {
   let stripeSessionId = searchParams.sessionId;
@@ -10,7 +11,6 @@ const SuccessPage = async ({ searchParams }) => {
 
   return (
     <div className="bg-gray-100 h-screen">
-      {/* <Header /> */}
       <main className="max-w-4xl mx-auto mt-10">
         <div className="flex flex-col p-10 bg-white">
           {session && stripeSessionId && (
@@ -30,9 +30,7 @@ const SuccessPage = async ({ searchParams }) => {
               </p>
             </>
           )}
-          {(!stripeSessionId || !session) && (
-            <h1 className="text-3xl self-center">404 Page not found</h1>
-          )}
+          {(!stripeSessionId || !session) && notFound()}
           <GoToHomeButton />
         </div>
       </main>
