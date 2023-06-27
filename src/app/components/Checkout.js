@@ -1,6 +1,5 @@
 "use client";
 import { useSelector } from "react-redux";
-import Header from "./Header";
 import Image from "next/image";
 import { selectItems, selectTotal } from "../store/cartSlice";
 import CheckoutProduct from "./CheckoutProduct";
@@ -39,7 +38,7 @@ const Checkout = () => {
 
   return (
     <div className="bg-gray-100">
-      <Header />
+      {/* <Header /> */}
       <main className="lg:flex max-w-screen-2xl mx-auto">
         <div className="flex-grow m-5 shadow-sm">
           <Image

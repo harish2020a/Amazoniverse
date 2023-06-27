@@ -1,5 +1,4 @@
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
-import Header from "../../components/Header";
 import { getServerSession } from "next-auth/next";
 import GoToHomeButton from "@/app/components/GoToHomeButton";
 import { authOptions } from "@/app/utils/authOptions";
@@ -11,7 +10,7 @@ const SuccessPage = async ({ searchParams }) => {
 
   return (
     <div className="bg-gray-100 h-screen">
-      <Header />
+      {/* <Header /> */}
       <main className="max-w-4xl mx-auto mt-10">
         <div className="flex flex-col p-10 bg-white">
           {session && stripeSessionId && (
