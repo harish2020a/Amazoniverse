@@ -1,4 +1,5 @@
 "use client";
+import mainLogo from "../../../public/static/logo.png";
 import Image from "next/image";
 import {
   MagnifyingGlassIcon,
@@ -18,13 +19,13 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50">
-      <div className="flex items-center bg-amazon_blue p-1 flex-grow py-2">
+      <div className="flex items-center bg-amazon_blue p-3 sm:p-1 flex-grow py-2">
         <div className="mt-2 ml-2 pr-4 flex items-center flex-grow sm:flex-grow-0">
           <Image
             onClick={() => {
               router.push("/");
             }}
-            src="/static/logo.png"
+            src={mainLogo}
             width={104}
             height={32}
             style={{ objectFit: "contain" }}
@@ -46,7 +47,7 @@ const Header = () => {
             <p>{session ? `Hello, ${session.user.name}` : "Sign In"}</p>
             <p className="font-extrabold md:text-sm">Accounts & Lists</p>
           </div>
-          <div className="link">
+          <div className="hidden link sm:inline-block">
             <p>Returns</p>
             <p className="font-extrabold md:text-sm">& Orders</p>
           </div>
