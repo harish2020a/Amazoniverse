@@ -47,7 +47,7 @@ const Checkout = () => {
             style={{ objectFit: "contain" }}
             alt="Item"
           />
-          <div className="flex flex-col p-5 space-y-10 bg-white">
+          <div className="flex flex-col p-5 space-y-10 bg-white divide-y divide-yellow-300 divide-dashed">
             <h1 className="text-3xl border-b pb-4">
               {items.length === 0 ? "Your Cart is Empty!!!" : "Shopping Cart"}
             </h1>
@@ -72,7 +72,7 @@ const Checkout = () => {
 
         <div className="flex flex-col bg-white p-10 shadow-md">
           {items.length > 0 && (
-            <div className="sticky top-40 z-50">
+            <div className="fixed bottom-0 w-screen sm:w-auto bg-white sm:sticky sm:top-40 z-50">
               <h2 className="whitespace-nowrap">
                 Subtotal ({items.length} items):{" "}
                 <span className="font-bold">
@@ -86,7 +86,7 @@ const Checkout = () => {
                 role="link"
                 onClick={checkoutHandler}
                 disabled={!session}
-                className={`rounded-md button mt-2 ${
+                className={`rounded-md mx-auto w-screen sm:w-auto button max-w-xs my-2 font-bold ${
                   !session &&
                   "from-gray-300 to-gray-500 border-gray-200 text-gray-300 cursor-not-allowed"
                 }`}

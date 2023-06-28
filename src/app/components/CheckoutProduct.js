@@ -66,17 +66,18 @@ const CheckoutProduct = ({
           style: "currency",
           currency: "INR",
         }).format(price)}
-        <label htmlFor="qty" className="ml-4">
+        <label htmlFor="qty" className="flex flex-row my-4 font-bold">
           Quantity:
-        </label>
         <input
           onChange={quantityChangeHandler}
           type="number"
           name="qty"
+          id="qty"
           value={qty}
           min={1}
-          className="rounded-md w-20 m-4 ml-2 p-2 button"
+          className="rounded-md w-16 sm:w-20 h-6 ml-2 p-2 button"
         />
+        </label>
         {hasPrime && (
           <div className="flex items-center space-x-2">
             <Image
@@ -89,7 +90,7 @@ const CheckoutProduct = ({
           </div>
         )}
       </div>
-      <div className="flex flex-col space-y-2 my-auto justify-self-end">
+      <div className="flex -m-3 flex-col space-y-2 my-auto justify-self-end font-bold">
         <button className="button mt-auto" onClick={increaseQuantityHandler}>
           Quantity +
         </button>
