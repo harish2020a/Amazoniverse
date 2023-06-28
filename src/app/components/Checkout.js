@@ -47,24 +47,27 @@ const Checkout = () => {
             style={{ objectFit: "contain" }}
             alt="Item"
           />
-          <div className="flex flex-col p-5 space-y-10 bg-white divide-y divide-yellow-300 divide-dashed">
+          <div className="flex flex-col p-5 space-y-10 bg-white">
             <h1 className="text-3xl border-b pb-4">
               {items.length === 0 ? "Your Cart is Empty!!!" : "Shopping Cart"}
             </h1>
             {items.map((item, i) => {
               return (
-                <CheckoutProduct
-                  key={i}
-                  id={item.id}
-                  title={item.title}
-                  price={item.price}
-                  rating={item.rating}
-                  description={item.description}
-                  category={item.category}
-                  image={item.image}
-                  hasPrime={item.hasPrime}
-                  qty={item.qty}
-                />
+                <>
+                  <CheckoutProduct
+                    key={i}
+                    id={item.id}
+                    title={item.title}
+                    price={item.price}
+                    rating={item.rating}
+                    description={item.description}
+                    category={item.category}
+                    image={item.image}
+                    hasPrime={item.hasPrime}
+                    qty={item.qty}
+                  />
+                  <hr className="dashed color bg-yellow-300 h-0.5 mx-6" />
+                </>
               );
             })}
           </div>
