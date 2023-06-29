@@ -53,9 +53,8 @@ const Checkout = () => {
             </h1>
             {items.map((item, i) => {
               return (
-                <>
+                <div key={item.id}>
                   <CheckoutProduct
-                    key={i}
                     id={item.id}
                     title={item.title}
                     price={item.price}
@@ -67,7 +66,7 @@ const Checkout = () => {
                     qty={item.qty}
                   />
                   <hr className="dashed color bg-yellow-300 h-0.5 mx-6" />
-                </>
+                </div>
               );
             })}
           </div>

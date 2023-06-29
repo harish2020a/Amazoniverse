@@ -5,8 +5,7 @@ import { authOptions } from "@/app/utils/authOptions";
 import { notFound } from "next/navigation";
 
 const SuccessPage = async ({ searchParams }) => {
-  let stripeSessionId = searchParams.sessionId;
-  if (stripeSessionId) stripeSessionId = stripeSessionId.startsWith("cs_");
+  const stripeSessionId = searchParams?.sessionId?.startsWith("cs_");
   const session = await getSession();
 
   return (
